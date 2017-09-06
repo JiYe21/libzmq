@@ -75,6 +75,7 @@ zmq::tcp_listener_t::~tcp_listener_t ()
 void zmq::tcp_listener_t::process_plug ()
 {
     //  Start polling for incoming connections.
+    //添加监听套接字读事件
     handle = add_fd (s);
     set_pollin (handle);
 }
@@ -109,6 +110,7 @@ void zmq::tcp_listener_t::in_event ()
 
     //  Choose I/O thread to run connecter in. Given that we are already
     //  running in an I/O thread, there must be at least one available.
+    //选择一个线程处理连接
     io_thread_t *io_thread = choose_io_thread (options.affinity);
     zmq_assert (io_thread);
 

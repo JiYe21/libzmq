@@ -125,7 +125,8 @@ namespace zmq
 
         //  If true, this session (re)connects to the peer. Otherwise, it's
         //  a transient session created by the listener.
-        const bool active;
+        //主动连接的socket为真，监听socket accept的socket为false
+        const bool active;  
 
         //  Pipe connecting the session to its socket.
         zmq::pipe_t *pipe;

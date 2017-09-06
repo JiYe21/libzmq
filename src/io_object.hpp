@@ -44,7 +44,7 @@ namespace zmq
     //  Simple base class for objects that live in I/O threads.
     //  It makes communication with the poller object easier and
     //  makes defining unneeded event handlers unnecessary.
-
+//事件接口封装，接受io线程实例的事件循环实例
     class io_object_t : public i_poll_events
     {
     public:

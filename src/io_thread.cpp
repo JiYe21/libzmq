@@ -42,8 +42,8 @@ zmq::io_thread_t::io_thread_t (ctx_t *ctx_, uint32_t tid_) :
     poller = new (std::nothrow) poller_t (*ctx_);
     alloc_assert (poller);
 
-    mailbox_handle = poller->add_fd (mailbox.get_fd (), this);
-    poller->set_pollin (mailbox_handle);
+    mailbox_handle = poller->add_fd (mailbox.get_fd (), this);//添加fd
+    poller->set_pollin (mailbox_handle);//设置读事件
 }
 
 zmq::io_thread_t::~io_thread_t ()

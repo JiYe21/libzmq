@@ -50,6 +50,7 @@
 #include "radio.hpp"
 #include "dish.hpp"
 
+//根据不同的socket type 创建不同的session
 zmq::session_base_t *zmq::session_base_t::create (class io_thread_t *io_thread_,
     bool active_, class socket_base_t *socket_, const options_t &options_,
     address_t *addr_)

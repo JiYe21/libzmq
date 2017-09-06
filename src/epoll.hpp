@@ -75,6 +75,7 @@ namespace zmq
     private:
 
         //  Main worker thread routine.
+        //
         static void worker_routine (void *arg_);
 
         //  Main event loop.
@@ -90,7 +91,7 @@ namespace zmq
         {
             fd_t fd;
             epoll_event ev;
-            zmq::i_poll_events *events;
+            zmq::i_poll_events *events;//事件回调对象
         };
 
         //  List of retired event sources.
@@ -101,7 +102,7 @@ namespace zmq
         bool stopping;
 
         //  Handle of the physical thread doing the I/O work.
-        thread_t worker;
+        thread_t worker; //持有线程对象，如此则io多路复用对象和线程关联，在该线程中执行事件循环
 
         //  Synchronisation of retired event sources
         mutex_t retired_sync;

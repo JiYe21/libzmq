@@ -45,7 +45,7 @@ namespace zmq
 
     //  Generic part of the I/O thread. Polling-mechanism-specific features
     //  are implemented in separate "polling objects".
-
+//线程实例，每个线程一个io多路复方对象
     class io_thread_t : public object_t, public i_poll_events
     {
     public:
@@ -65,6 +65,7 @@ namespace zmq
         //  Returns mailbox associated with this I/O thread.
         mailbox_t *get_mailbox ();
 
+//io 和定时事件 读写回调
         //  i_poll_events implementation.
         void in_event ();
         void out_event ();

@@ -36,12 +36,13 @@ namespace zmq
     class io_thread_t;
 
     //  Abstract interface to be implemented by various engines.
-
+//事件驱动抽象，1 tcp 2 udp 子类实现具体read/write接口
     struct i_engine
     {
         virtual ~i_engine () {}
 
         //  Plug the engine to the session.
+        //将一个session添加到一个线程上
         virtual void plug (zmq::io_thread_t *io_thread_,
             class session_base_t *session_) = 0;
 
