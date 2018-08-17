@@ -601,7 +601,7 @@ int zmq::socket_base_t::bind (const char *addr_)
         tcp_listener_t *listener = new (std::nothrow) tcp_listener_t (
             io_thread, this, options);
         alloc_assert (listener);
-        rc = listener->set_address (address.c_str ());
+        rc = listener->set_address (address.c_str ());//´´½¨socket
         if (rc != 0) {
             LIBZMQ_DELETE(listener);
             event_bind_failed (address, zmq_errno());

@@ -57,7 +57,7 @@ namespace zmq
     class ctx_t;
     class msg_t;
     class pipe_t;
-
+//socket »ùÀà
     class socket_base_t :
         public own_t,
         public array_item_t <>,

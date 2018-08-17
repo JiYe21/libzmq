@@ -177,7 +177,7 @@ namespace zmq
 
         //  Array of pointers to mailboxes for both application and I/O threads.
         uint32_t slot_count;
-        i_mailbox **slots;
+        i_mailbox **slots;//记录所有线程
 
         //  Mailbox for zmq_ctx_term thread.
         mailbox_t term_mailbox;
